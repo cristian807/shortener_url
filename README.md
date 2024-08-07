@@ -18,7 +18,7 @@ Shorteners url es un proyecto realizado con laravel V10 y react el cual te permi
 
 Una vez se cumplan los requisitos procedemos a clonar el repositorio
 
-<img src="/images/clone-repository.png" width="400" alt="Laravel Logo">
+<img src="./public/images/clone-repository.png" width="400" alt="Laravel Logo">
 
 1. abrimos nuestra terminal(consola), nos ubicamos en la carpeta que queremos que se nos descargen los archivos y copiamos el comando del paso 2 en la imagen anterior.
 
@@ -56,5 +56,5 @@ php artisan serve && npm run dev
 cuando nuestro servidor este listo podemos ingresar desde el navegador a nuestra pagina (http://127.0.0.1:8000/)
 
 <p align="center">
-    <img src="/images/shorteners_url.png" width="400" alt="Laravel Logo">
+    <img src="./public/images/shorteners_url.png" width="400" alt="Laravel Logo">
 </p>
