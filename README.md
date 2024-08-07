@@ -4,13 +4,13 @@
 
 
 
-## Shorteners URLs
+# Shorteners URLs
 
 Shorteners url es un proyecto realizado con laravel V10 y react el cual te permite acortar URLs muy extensas y esta te proporciona una URL pequeña que al ingresar a esta te redirige a la URL origen.
 
-## Instalacion
+# Instalacion
 
-# Requisitos
+## Requisitos
     1. PHP 8.1 - 8.3
     2. NODE V17 o superior
     3. composer 2.4
