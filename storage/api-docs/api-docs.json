@@ -1,0 +1,173 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "shortener URL",
+        "description": "Acortador de URL",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000"
+        }
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "tags": [
+                    "Index"
+                ],
+                "description": "Devuelve la vista con el listado de las URLs acortadas.",
+                "operationId": "ac5f32eec336b092a10a014ae5e0d4ed",
+                "responses": {
+                    "200": {
+                        "description": "Vistra principal con el listado de URLs Shortener.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "code_url": {
+                                                "type": "string",
+                                                "example": "Khghj"
+                                            },
+                                            "origin_url": {
+                                                "type": "string",
+                                                "example": "https://example-shortener-url.com"
+                                            },
+                                            "new_url": {
+                                                "type": "string",
+                                                "example": "localhost:8000/Khghj"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/shortener/create": {
+            "get": {
+                "tags": [
+                    "shortener view"
+                ],
+                "description": "Devuelve la vista para recortar las URLs.",
+                "operationId": "827c421fcfe57bb6ebf0744b8f173828",
+                "responses": {
+                    "302": {
+                        "description": "Vista principal obtenida."
+                    }
+                }
+            }
+        },
+        "/shortener/store": {
+            "post": {
+                "tags": [
+                    "Shortener URLs"
+                ],
+                "description": "Permite guardar la URL original y genera una nueva acortada.",
+                "operationId": "5f2c32fb63d5424748e5dde9698c065f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "origin_url": {
+                                        "description": "URL a acortar.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "302": {
+                        "description": "Redireccion a la vista principal index con el listado de URLs o si hay errores de validacion devuelve la vista presente con estos errores."
+                    }
+                }
+            }
+        },
+        "/shortener/destroy/{shortener_code}": {
+            "delete": {
+                "tags": [
+                    "shortener delete"
+                ],
+                "description": "Elimina un registro (url shortener).",
+                "operationId": "5cbc3f3f9645f5912a965c9a699e5adc",
+                "parameters": [
+                    {
+                        "name": "shortener",
+                        "in": "path",
+                        "description": "Identificador unico de la URL origen.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "302": {
+                        "description": "Redireccionado a la pagina principal, con el mensaje: Registro eliminado exitosamente."
+                    }
+                }
+            }
+        },
+        "/shortener/redirect/{code_url}": {
+            "get": {
+                "tags": [
+                    "shortener redirect"
+                ],
+                "description": "Redirecciona a la Url destino.",
+                "operationId": "5d04f452b8b1b60a0eda2a7ca9e36b73",
+                "parameters": [
+                    {
+                        "name": "code_url",
+                        "in": "path",
+                        "description": "Identificador unico de la URL origen.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "302": {
+                        "description": "Redireccionando a la URL destino."
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Index",
+            "description": "Index"
+        },
+        {
+            "name": "shortener view",
+            "description": "shortener view"
+        },
+        {
+            "name": "Shortener URLs",
+            "description": "Shortener URLs"
+        },
+        {
+            "name": "shortener delete",
+            "description": "shortener delete"
+        },
+        {
+            "name": "shortener redirect",
+            "description": "shortener redirect"
+        }
+    ]
+}
