@@ -22,6 +22,10 @@ Una vez se cumplan los requisitos procedemos a clonar el repositorio
 
 1. abrimos nuestra terminal(consola), nos ubicamos en la carpeta que queremos que se nos descargen los archivos y copiamos el comando del paso 2 en la imagen anterior.
 
+```
+git clone https://github.com/cristian807/shortener_url.git
+```
+
 2. abrimos el proyecto con nuestro editor preferido y ejecutamos los siguientes comandos:
 
 Instalamos las dependencias del archivo composer.json
@@ -37,7 +41,7 @@ npm install
 creamos el archivo .env basandonos en el .env.example
 
 ```
-cp env.example .env
+cp .env.example .env
 ```
 
 creamos nuestra base de datos a utilizar y la referenciamos en el archivo .env 
@@ -47,14 +51,23 @@ Ejecutamos las migraciones y seeders
 ```
 php artisan migrate --seed
 ```
+Generamos la nueva key para nustra aplicacion
 
-levantamos nuestro servidor
+```
+php artisan key:generate
+```
+
+Levantamos nuestro servidor
 
 ```
 php artisan serve && npm run dev
 ```
-cuando nuestro servidor este listo podemos ingresar desde el navegador a nuestra pagina (http://127.0.0.1:8000/)
+Cuando nuestro servidor este listo podemos ingresar desde el navegador a nuestra pagina (http://127.0.0.1:8000/)
 
 <p align="center">
     <img src="./public/images/shorteners_url.png" width="700" alt="Laravel Logo">
 </p>
+
+## Documentacion con Swagger
+
+(http://127.0.0.1:8000/api/documentation)
