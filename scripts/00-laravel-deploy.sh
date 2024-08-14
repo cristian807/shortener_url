@@ -11,5 +11,5 @@ php artisan route:cache
 echo "Running migrations..."
 php artisan migrate --force
 
-echo "node......"
-node -v
+echo "npm......"
+npm -v
