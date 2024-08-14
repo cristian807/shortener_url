@@ -18,7 +18,7 @@ echo "activate fnm"
 source ~/.bashrc
 
 echo "download and install Node.js"
-fnm use --install-if-missing 20
+fnm use --install-if-missing 20 --working-dir=/var/www/html
 
 echo "node..."
 node -v
