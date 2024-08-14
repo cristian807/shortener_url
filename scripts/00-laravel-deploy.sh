@@ -12,13 +12,10 @@ echo "Running migrations..."
 php artisan migrate --force
 
 echo "installs fnm (Fast Node Manager)"
-curl -fsSL https://fnm.vercel.app/install | bash
-
-echo "activate fnm"
-source ~/.bashrc
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
 echo "download and install Node.js"
-fnm use --install-if-missing 20 --working-dir=/var/www/html
+nvm install 20
 
 echo "node..."
 node -v
