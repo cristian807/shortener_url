@@ -11,5 +11,14 @@ php artisan route:cache
 echo "Running migrations..."
 php artisan migrate --force
 
-echo "npm......"
-npm -v
+echo "installs fnm (Fast Node Manager)"
+curl -fsSL https://fnm.vercel.app/install | bash
+
+echo "activate fnm"
+source ~/.bashrc
+
+echo "download and install Node.js"
+fnm use --install-if-missing 20
+
+echo "node..."
+node -v
